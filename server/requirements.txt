@@ -1,0 +1,4 @@
+pymongo[srv]
+flask
+flask_cors
+beautifulsoup4
