@@ -72,6 +72,12 @@ function sendPostWord(word) {
     });
 }
 
+function checkToRun() {
+    chrome.storage.sync.get(['emailOn'], function(result) {
+        if (result.emailOn == null || result.emailOn) checkGmail();
+    });
+}
+
 if (window.location.hostname == 'mail.google.com') {
-    setInterval(checkGmail, 10000);
+    setInterval(checkToRun, 10000);
 }

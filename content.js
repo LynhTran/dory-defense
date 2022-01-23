@@ -68,4 +68,6 @@ function sendPostDomain(hash) {
     });
 }
 
-checkUrl();
+chrome.storage.sync.get(['blockerOn'], function(result) {
+    if (result.blockerOn == null || result.blockerOn) checkUrl();
+});
