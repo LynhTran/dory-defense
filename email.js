@@ -1,12 +1,10 @@
 
-alert("working");
-
 document.addEventListener('DOMContentLoaded', function () {
     waitForElementToDisplay('div.editable[aria-label="Message Body"]',checker(),1000,9000);
 });
-
+waitForElementToDisplay('div.editable[aria-label="Message Body"]',checker(),1000,90000);
 function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
-    var message = document.querySelector('div.editable[aria-label="Message Body"]').element.innerText;
+    var message = document.querySelector('div.editable[aria-label="Message Body"]').innerText;
     var startTimeInMs = Date.now();
     (function loopSearch() {
         if (document.querySelector(selector) != null) {
