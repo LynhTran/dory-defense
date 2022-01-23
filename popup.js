@@ -1,3 +1,4 @@
+
 //document.getElementById("fun-fact").addEventListener("click", showFunFact());
 showFunFact();
 function getRandomInt(max) {
@@ -39,3 +40,11 @@ $(document).ready(function(){
         });
     });
 });
+
+let numEmails;
+let numBlocks;
+
+chrome.storage.sync.get(['emailCount'], function() {
+})
+chrome.storage.sync.get(['blockCount'], function() {
+})

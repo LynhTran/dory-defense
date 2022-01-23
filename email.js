@@ -71,6 +71,7 @@ function sendPostWord(word) {
                     ]
                 });
             }
+            chrome.storage.sync.set({emailCount : emailCount + 1});
         },
         error: function(e) {
             console.log(e);
@@ -80,6 +81,7 @@ function sendPostWord(word) {
 
 function checkToRun() {
     chrome.storage.sync.get(['emailOn'], function(result) {
+        console.log(result.emailOn);
         if (result.emailOn == null || result.emailOn) checkGmail();
     });
 }
