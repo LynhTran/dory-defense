@@ -21,14 +21,20 @@ function showFunFact(){
         color: 'blue',
         message: generateFunFact(),
         position: 'bottomCenter',
-        timeout: 15000,
+        timeout: 30000,
         maxWidth: 500,
         iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
     })             
 }
  
 $(document).ready(function(){
-    $('.counter-value').each(function(){
+    chrome.storage.sync.get(['emailCount'], function(result) {
+        chrome.storage.sync.get(['blockCount'], function(result2) {
+            var totalHelpCount = result.emailCount + result2.blockCount;
+            $('.counter-value')[0].innerText = totalHelpCount;
+        });
+    });
+    /*$('.counter-value').each(function(){
         $(this).prop('Counter',0).animate({
             Counter: $(this).text()
         },{
@@ -38,13 +44,5 @@ $(document).ready(function(){
                 $(this).text(Math.ceil(now));
             }
         });
-    });
+    });*/
 });
-
-let numEmails;
-let numBlocks;
-
-chrome.storage.sync.get(['emailCount'], function() {
-})
-chrome.storage.sync.get(['blockCount'], function() {
-})
