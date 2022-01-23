@@ -2,15 +2,33 @@
 // const matches = null
 // if (matches)
 
+// Remove this in production
+chrome.storage.sync.clear();
+
 console.log('content.js loaded');
 
 function checkUrl() {
     var domain = window.location.hostname;
-    var hash = md5(domain + 'minnehack2022');
-    sendPost(hash);
+    chrome.storage.sync.get(['checkedDomains'], function(result) {
+        var checkedDomains = result.checkedDomains;
+        if (checkedDomains == null) checkedDomains = [];
+        if (checkedDomains.indexOf(domain) == -1) {
+            console.log('Checking ' + domain);
+            var hash = md5(domain + 'minnehack2022');
+            sendPostDomain(hash);
+            if (domain.indexOf('www.') != -1) {
+                var hash = md5(domain.replace('www.', '') + 'minnehack2022');
+                sendPostDomain(hash);
+            }
+            checkedDomains.push(domain);
+            chrome.storage.sync.set({'checkedDomains': checkedDomains});
+        } else {
+            console.log('Already checked ' + domain);
+        }
+    });
 }
 
-function sendPost(hash) {
+function sendPostDomain(hash) {
     $.ajax({
         type: 'POST',
         url: 'https://mh2022.muchskeptical.net/api/check_url',
@@ -18,7 +36,31 @@ function sendPost(hash) {
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
-            if (!data.safe) alert('This website is not safe!');
+            if (!data.safe) {
+                try {
+                    iziToast.error({
+                        title: 'Watch out friend!',
+                        message: 'This site may be unsafe, exercise caution when interacting with it!',
+                        maxWidth: 500,
+                        iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+                        timeout: 10000,
+                        position: 'topCenter',
+                        close: false,
+                        drag: false,
+                        buttons: [
+                            ['<button>GO BACK</button>', function (instance, toast) {
+                                window.history.back();                  
+                            }],
+                            ['<button>I trust this site</button>', function (instance, toast) {
+                                    instance.hide({transitionOut: 'fadeOutUp'}, toast, 'button');
+                            }]
+                        ]
+                    });
+                } catch (e) {
+                    console.log(e);
+                    alert('This site may be unsafe, exercise caution when interacting with it');
+                }
+            }
         },
         error: function(e) {
             console.log(e);
@@ -26,4 +68,6 @@ function sendPost(hash) {
     });
 }
 
-checkUrl();
+chrome.storage.sync.get(['blockerOn'], function(result) {
+    if (result.blockerOn == null || result.blockerOn) checkUrl();
+});

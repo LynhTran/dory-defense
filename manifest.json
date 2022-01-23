@@ -1,25 +1,34 @@
 {
-    "name": "Dory Defense",
-    "description": " ",
-    "version": "1.0",
-    "manifest_version": 3,
+    "name": "Dory Defense", 
+    "description": "Dory's defense is increased by 50%.", 
+    "version": "1.0", 
+    "manifest_version": 3, 
     "background": {
         "service_worker": "background.js"
-      },
+    },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
-            "js": ["email.js"],
+            "matches": ["<all_urls>"], 
+            "css": ["thirdparty/css/iziToast.min.css"], 
+            "js": ["thirdparty/js/jquery.min.js", "thirdparty/js/iziToast.min.js", "email.js"], 
             "run_at": "document_start"
-        },
+        }, 
         {
-            "matches": ["<all_urls>"],
-            "js": ["md5.min.js", "jquery.min.js","content.js"]
+            "matches": ["<all_urls>"], 
+            "css": ["thirdparty/css/iziToast.min.css"], 
+            "js": ["thirdparty/js/md5.min.js", "thirdparty/js/jquery.min.js", "thirdparty/js/iziToast.min.js", "content.js"], 
+            "run_at": "document_start"
         }
-    ],
-    "permissions": ["storage"],
+    ], 
+    "permissions": ["storage"], 
     "action": {
-      "default_popup": "popup.html"
-    },    
-      "options_page": "options.html"
+        "default_popup": "popup.html"
+    }, 
+    "browser_action": {
+        "default_popup": "popup.html", 
+        "default_title": "Dory"
+    }, 
+    "icons": {
+        "128": "icon.png"
+    }
 }
