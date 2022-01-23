@@ -39,7 +39,20 @@ function sendPostWord(word) {
                     position: 'topRight',
                     message: 'I noticed that you typed the word: ' + word + '. This could potentially be sensitive information that might not be safe to share over email!',
                     iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
-                    timeout: 15000,
+                    timeout: 10000,
+                    buttons: [
+                        ['<button class = "button-learn">Learn More</button>', function (instance, toast) {
+                             iziToast.info({
+                                 title: 'Stuff about digital security and why they should care',
+                                 color: 'blue',
+                                 message: 'internet = bad',
+                                 position: 'topRight',
+                                 timeout: 10000,
+                                 maxWidth: 500,
+                                 iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+                             })             
+                        }],
+                    ]
                 });
             }
         },
