@@ -36,6 +36,7 @@ function sendPostDomain(hash) {
                 iziToast.error({
                     title: 'Warning',
                     message: 'This site may be unsafe, exercise caution when interacting with it',
+                    iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
                     timeout: 10000,
                     position: 'topLeft'
                 });

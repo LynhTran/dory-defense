@@ -35,6 +35,7 @@ function sendPostWord(word) {
                 iziToast.warning({
                     title: 'Warning',
                     message: word + ' was flagged as potentially sensitive information',
+                    iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
                     timeout: 3000,
                     position: 'bottomLeft'
                 });
