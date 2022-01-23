@@ -1,0 +1,9 @@
+[
+    "https://raw.githubusercontent.com/mitchellkrogza/Phishing.Database/master/phishing-domains-ACTIVE.txt", 
+    "https://raw.githubusercontent.com/tg12/pihole-phishtank-list/master/list/phish_domains.txt", 
+    "https://raw.githubusercontent.com/nikolaischunk/discord-phishing-links/main/domain-list.json", 
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Junk", 
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Risk", 
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Malware", 
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/master/RAW/Scam"
+]
