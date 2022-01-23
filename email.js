@@ -12,7 +12,8 @@ function checkGmail() {
             words.forEach(function (item, index) {
                 var word = item.trim();
                 if (word.length > 0 && checkedWords.indexOf(word) == -1) {
-                    sendPostWord(word);
+                    //sendPostWord(word);
+                    sendPostWordBackup(word);
                     checkedWords.push(word);
                 }
             });
