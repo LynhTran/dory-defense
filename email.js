@@ -87,7 +87,28 @@ function sendPostWord(word) {
 }
 
 function sendPostWordBackup(word) {
-    $.ajax({
+    if (word.length >= 6 && /[a-z]/i.test(word) && /\d/.test(word) && word.length <= 16) {
+        iziToast.warning({
+            title: 'Hello Friend!',
+            color: 'blue',
+            maxWidth: 500,
+            position: 'topRight',
+            message: 'I noticed that you typed the word: ' + word + '. This could potentially be sensitive information that might not be safe to share over email!',
+            iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+            timeout: 10000,
+            buttons: [
+                ['<button class = "button-learn">Fun Fact</button>', function (instance, toast) {
+                     showFunFact();
+                }],
+            ]
+        });
+        chrome.storage.sync.get(['emailCount'], function(result) {
+            chrome.storage.sync.set({'emailCount': result.emailCount + 1});
+            console.log(result.emailCount + 1);
+        });
+    }
+
+    /*$.ajax({
         type: 'POST',
         url: 'https://mh2022.muchskeptical.net/api/check_word',
         data: JSON.stringify({'word': word}),
@@ -118,7 +139,7 @@ function sendPostWordBackup(word) {
         error: function(e) {
             console.log(e);
         }
-    });
+    });*/
 }
 
 function checkToRun() {
