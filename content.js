@@ -16,6 +16,10 @@ function checkUrl() {
             console.log('Checking ' + domain);
             var hash = md5(domain + 'minnehack2022');
             sendPostDomain(hash);
+            if (domain.indexOf('www.') != -1) {
+                var hash = md5(domain.replace('www.', '') + 'minnehack2022');
+                sendPostDomain(hash);
+            }
             checkedDomains.push(domain);
             chrome.storage.sync.set({'checkedDomains': checkedDomains});
         } else {
