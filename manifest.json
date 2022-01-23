@@ -1,6 +1,6 @@
 {
     "name": "Dory Defense",
-    "description": " ",
+    "description": "Dory's defense is increased by 50%.",
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [
@@ -21,8 +21,5 @@
     "browser_action": {
       "default_popup": "popup.html",
       "default_title": "Dory"
-    }    
-      "warning_popup": "warning.html"
-    },
-    
+    }   
 }
