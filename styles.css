@@ -62,12 +62,11 @@ h6 {
 
 /* The switch - the box around the slider */
 .switch {
-    position: absolute;
-    right: 1100px;
-    bottom: 500px;
-    display: inline-block;
+    position: relative;
+    /* right: 1100px;
+    bottom: 500px; */
+    float: right;
     width: 60px;
-    display:inline-block;
     height: 34px;
   }
   
