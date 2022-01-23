@@ -1,20 +1,8 @@
-let emailOn = true;
-let blockerOn = true;
-
-let emailCount = 0;
-let blockCount = 0;
-
-chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({emailOn},
-    function() {
-    });
-    chrome.storage.sync.set({blockerOn},
-    function() {
-    });
-    chrome.storage.sync.set({emailCount},
-    function() {
-    });
-    chrome.storage.sync.set({blockCount},
-    function() {
-    })
+chrome.runtime.onInstalled.addListener(function(details){
+    if (details.reason == "install"){
+        chrome.storage.sync.set({'emailOn': true});
+        chrome.storage.sync.set({'blockerOn': true});
+    } else if (details.reason == "update"){
+        console.log('Updated')
+    }
 });

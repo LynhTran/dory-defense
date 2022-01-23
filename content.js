@@ -3,14 +3,16 @@
 // if (matches)
 
 // Remove this in production
-// chrome.storage.sync.clear();
+//chrome.storage.sync.clear();
 
 console.log('content.js loaded');
+
+var checkedDomains = [];
 
 function checkUrl() {
     var domain = window.location.hostname;
     chrome.storage.sync.get(['checkedDomains'], function(result) {
-        var checkedDomains = result.checkedDomains;
+        checkedDomains = result.checkedDomains;
         if (checkedDomains == null) checkedDomains = [];
         if (checkedDomains.indexOf(domain) == -1) {
             console.log('Checking ' + domain);
@@ -21,7 +23,6 @@ function checkUrl() {
                 sendPostDomain(hash);
             }
             checkedDomains.push(domain);
-            chrome.storage.sync.set({'checkedDomains': checkedDomains});
         } else {
             console.log('Already checked ' + domain);
         }
@@ -52,7 +53,8 @@ function sendPostDomain(hash) {
                                 window.history.back();                  
                             }],
                             ['<button>I trust this site</button>', function (instance, toast) {
-                                    instance.hide({transitionOut: 'fadeOutUp'}, toast, 'button');
+                                instance.hide({transitionOut: 'fadeOutUp'}, toast, 'button');
+                                chrome.storage.sync.set({'checkedDomains': checkedDomains});
                             }]
                         ]
                     });
@@ -73,5 +75,6 @@ function sendPostDomain(hash) {
 }
 
 chrome.storage.sync.get(['blockerOn'], function(result) {
+    console.log(result.blockerOn);
     if (result.blockerOn == null || result.blockerOn) checkUrl();
 });

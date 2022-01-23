@@ -75,6 +75,7 @@ function sendPostWord(word) {
 
 function checkToRun() {
     chrome.storage.sync.get(['emailOn'], function(result) {
+        console.log(result.emailOn);
         if (result.emailOn == null || result.emailOn) checkGmail();
     });
 }
