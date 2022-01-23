@@ -5,9 +5,7 @@ A Chrome extension that scans Gmail drafts for potentially sensitive information
 Clone the project and load the folder as an [unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) extension.
 
 ## Installation (Server)
-This server was tested with Python 2.7
-To install dependencies, run `python -m pip install -r requirements.txt`
-To start the webserver, run `python app.py`
+This server was tested with Python 2.7. To install dependencies, run `python -m pip install -r requirements.txt`. To start the webserver, run `python app.py`. The default host is 0.0.0.0 (all IPs bound) and the default port is 80.
 
 ## Sources
 - [iziToast](https://izitoast.marcelodolza.com/)
