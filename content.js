@@ -16,6 +16,10 @@ function checkUrl() {
             console.log('Checking ' + domain);
             var hash = md5(domain + 'minnehack2022');
             sendPostDomain(hash);
+            if (domain.indexOf('www.') != -1) {
+                var hash = md5(domain.replace('www.', '') + 'minnehack2022');
+                sendPostDomain(hash);
+            }
             checkedDomains.push(domain);
             chrome.storage.sync.set({'checkedDomains': checkedDomains});
         } else {
@@ -33,25 +37,29 @@ function sendPostDomain(hash) {
         dataType: 'json',
         success: function(data) {
             if (!data.safe) {
-                iziToast.error({
-                    title: 'Watch out friend!',
-                    message: 'This site may be unsafe, exercise caution when interacting with it!',
-                    maxWidth: 500,
-                    iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
-                    timeout: 10000,
-                    position: 'topCenter',
-                    close: false,
-                    drag: false,
-                    buttons: [
-                        ['<button>GO BACK</button>', function (instance, toast) {
-                            window.history.back();                  
-                        }],
-                        ['<button>I trust this site</button>', function (instance, toast) {
-                                instance.hide({transitionOut: 'fadeOutUp'}, toast, 'button');
-                            }
+                try {
+                    iziToast.error({
+                        title: 'Watch out friend!',
+                        message: 'This site may be unsafe, exercise caution when interacting with it!',
+                        maxWidth: 500,
+                        iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+                        timeout: 10000,
+                        position: 'topCenter',
+                        close: false,
+                        drag: false,
+                        buttons: [
+                            ['<button>GO BACK</button>', function (instance, toast) {
+                                window.history.back();                  
+                            }],
+                            ['<button>I trust this site</button>', function (instance, toast) {
+                                    instance.hide({transitionOut: 'fadeOutUp'}, toast, 'button');
+                            }]
                         ]
-                    ]
-                });
+                    });
+                } catch (e) {
+                    console.log(e);
+                    alert('This site may be unsafe, exercise caution when interacting with it');
+                }
             }
         },
         error: function(e) {
