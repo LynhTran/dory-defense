@@ -4,10 +4,18 @@
 
 console.log('content.js loaded');
 
+var checkedDomains = [];
+
 function checkUrl() {
     var domain = window.location.hostname;
-    var hash = md5(domain + 'minnehack2022');
-    sendPost(hash);
+    if (checkedDomains.indexOf(domain) == -1) {
+        console.log('Checking ' + domain);
+        checkedDomains.push(domain);
+        var hash = md5(domain + 'minnehack2022');
+        sendPost(hash);
+    } else {
+        console.log('Already checked ' + domain);
+    }
 }
 
 function sendPost(hash) {
