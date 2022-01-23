@@ -64,6 +64,10 @@ function sendPostWord(word) {
                         }],
                     ]
                 });
+                chrome.storage.sync.get(['emailCount'], function(result) {
+                    chrome.storage.sync.set({'emailCount': result.emailCount + 1});
+                    console.log(result.emailCount);
+                  });
             }
             chrome.storage.sync.set({emailCount : emailCount + 1});
         },
