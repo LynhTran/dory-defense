@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Mochiy+Pop+P+One&display=swap');
+
+html,
+a   {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+  }
+h1 {
+    font-family: "Luckiest Guy";
+    font-size: 80px;
+    font-weight: 400;
+    margin: 20px;
+    color: #2e77aa;
+    padding-bottom: 40px;
+}
+h2 {
+    font-family: "Luckiest Guy";
+    font-size: 40px;
+    font-weight: 400;
+    margin: 0;
+    color: #2e77aa;
+    text-align: center;
+}
+h5 {
+    font-family: "Mochiy Pop P One";
+    font-size: 30px;
+    font-weight: 400;
+    margin: 0;
+    color: #2e77aa;
+    display:inline-block;
+    margin-right:60px;
+    width:200px;
+}
+h6 {
+    font-family: "Mochiy Pop P One";
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    color: #2e77aa;
+}
+.toggler-container {
+    width: 600px;
+    margin: 20px;
+    border-top:2px solid #97a9b6;
+    border-bottom:2px solid #97a9b6;
+}
+.flex {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: 3;
+    border: 5px outset rgb(0, 0, 0);
+    transition: opacity 0.2s ease-in-out;
+    width: 120px;
+    border-radius: 5px;
+    border-width: 2px;
+    text-decoration: none;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    right: 1100px;
+    bottom: 500px;
+    display: inline-block;
+    width: 60px;
+    display:inline-block;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  

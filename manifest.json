@@ -17,12 +17,6 @@
     "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html"
-    },
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_title": "Dory"
-    }    
-      "warning_popup": "warning.html"
-    },
-    
+    },    
+      "options_page": "options.html"
 }
