@@ -1,35 +1,29 @@
+console.log('hi');
 
-document.addEventListener('DOMContentLoaded', function () {
-    waitForElementToDisplay('div.editable[aria-label="Message Body"]',checker(),1000,9000);
-});
-waitForElementToDisplay('div.editable[aria-label="Message Body"]',checker(),1000,90000);
-function waitForElementToDisplay(selector, callback, checkFrequencyInMs, timeoutInMs) {
-    var message = document.querySelector('div.editable[aria-label="Message Body"]').innerText;
-    var startTimeInMs = Date.now();
-    (function loopSearch() {
-        if (document.querySelector(selector) != null) {
-            callback();
-            return;
-        }
-        else {
-            setTimeout(function () {
-                if (timeoutInMs && Date.now() - startTimeInMs > timeoutInMs)
-                    return;
-                loopSearch();
-            }, checkFrequencyInMs);
-        }
-    })();
-}
+var checkedWords = [];
 
-function checker(){
-    var words = string.split(" ");
-    for (var i = 0; i < words.length; i += 1) {
-        // give words[i] to backend to see if it's a password
-        var isPassword;
-        if(isPassword){
-            // display warning popup
-            alert("warning");
-        }
-        alert("working");
+function checkGmail() {
+    var element = document.querySelector('div.editable[aria-label="Message Body"]');
+    if (element != null) {
+        console.log('Found element');
+        console.log(element.innerText);
+        console.log(checkedWords);
+        var words = element.innerText.split(' ');
+        words.forEach(function (item, index) {
+            var word = item.trim();
+            if (checkedWords.indexOf(word) == -1) {
+                checkedWords.push(word);
+                checkWord(word);
+            }
+        });
+    } else {
+        console.log('No element found');
     }
 }
+
+function checkWord(word) {
+    console.log('Checking ' + word);
+    //Do an AJAX POST req to server here
+}
+
+setInterval(checkGmail, 1500);
