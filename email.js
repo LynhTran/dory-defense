@@ -26,7 +26,12 @@ function checkGmail() {
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
-var funFacts = ['Compromised passwords are responsible for 81 percent of hacking-related breaches.', '27% of Americans have tried to guess someone else’s password, and 17% of them were able to guess correctly.', '4 out of 10 Americans have had their personal data compromised online. Of those, 47% have lost money as a result.', 'Brute-force hacking tools are sold on criminal marketplaces for just $4 on average.'];
+var funFacts = ['Compromised passwords are responsible for 81 percent of hacking-related breaches.', 
+                '27% of Americans have tried to guess someone else’s password, and 17% of them were able to guess correctly.', 
+                '4 out of 10 Americans have had their personal data compromised online. Of those, 47% have lost money as a result.', 
+                'Brute-force hacking tools are sold on criminal marketplaces for just $4 on average.', 
+                'Approximately 15 billion spam emails are sent daily; 45% of all email is spam (and some researchers believe that number to be closer to 75%.', 
+                'An analysis of more than 55 million emails reveals that one in every 99 emails is a phishing attack.', ];
 
 function sendPostWord(word) {
     $.ajax({
@@ -46,7 +51,7 @@ function sendPostWord(word) {
                     iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
                     timeout: 10000,
                     buttons: [
-                        ['<button class = "button-learn">Learn More</button>', function (instance, toast) {
+                        ['<button class = "button-learn">Fun Fact</button>', function (instance, toast) {
                              iziToast.info({
                                  title: 'Did you know...',
                                  color: 'blue',
