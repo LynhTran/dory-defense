@@ -28,4 +28,4 @@ class API:
         words = request.json.get('words')
         if words is None or len(words) == 0:
             return jsonify({'error': 'no input', 'safe': True})
-        return jsonify({'error': '', 'safe': True})
+        return jsonify({'error': '', 'safe': False})
