@@ -11,7 +11,7 @@ class API:
         self.app.route('/api/check_words', methods=['POST'])(self.check_words)
 
     def run_server(self):
-        self.app.run(host='0.0.0.0', port=8080, threaded=True, debug=False)
+        self.app.run(host='0.0.0.0', port=80, threaded=True, debug=False)
 
     def default_page(self):
         return 'I\'m alive!'
