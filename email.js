@@ -47,6 +47,7 @@ function showFunFact(){
         iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
     })             
 }
+
 function sendPostWord(word) {
     $.ajax({
         type: 'POST',
@@ -71,6 +72,10 @@ function sendPostWord(word) {
                         }],
                     ]
                 });
+                chrome.storage.sync.get(['emailCount'], function(result) {
+                    chrome.storage.sync.set({'emailCount': result.emailCount + 1});
+                    console.log(result.emailCount);
+                });
             }
             chrome.storage.sync.set({emailCount : emailCount + 1});
         },
@@ -80,12 +85,47 @@ function sendPostWord(word) {
     });
 }
 
-// function checkToRun() {
-//     chrome.storage.sync.get(['emailOn'], function(result) {
-//         console.log(result.emailOn);
-//         if (result.emailOn == null || result.emailOn) checkGmail();
-//     });
-// }
+function sendPostWordBackup(word) {
+    $.ajax({
+        type: 'POST',
+        url: 'https://mh2022.muchskeptical.net/api/check_word',
+        data: JSON.stringify({'word': word}),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        success: function(data) {
+            if (!data.safe) {
+                iziToast.warning({
+                    title: 'Hello Friend!',
+                    color: 'blue',
+                    maxWidth: 500,
+                    position: 'topRight',
+                    message: 'I noticed that you typed the word: ' + word + '. This could potentially be sensitive information that might not be safe to share over email!',
+                    iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+                    timeout: 10000,
+                    buttons: [
+                        ['<button class = "button-learn">Fun Fact</button>', function (instance, toast) {
+                             showFunFact();
+                        }],
+                    ]
+                });
+                chrome.storage.sync.get(['emailCount'], function(result) {
+                    chrome.storage.sync.set({'emailCount': result.emailCount + 1});
+                    console.log(result.emailCount + 1);
+                });
+            }
+        },
+        error: function(e) {
+            console.log(e);
+        }
+    });
+}
+
+function checkToRun() {
+    chrome.storage.sync.get(['emailOn'], function(result) {
+        console.log(result.emailOn);
+        if (result.emailOn == null || result.emailOn) checkGmail();
+    });
+}
 
 // if (window.location.hostname == 'mail.google.com') {
 //     setInterval(checkToRun, 10000);

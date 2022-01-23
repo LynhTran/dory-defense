@@ -63,9 +63,9 @@ function sendPostDomain(hash) {
                     alert('This site may be unsafe, exercise caution when interacting with it');
                 }
                 chrome.storage.sync.get(['blockCount'], function(result) {
-                    blockCount = result.blockCount + 1;
-                    console.log(blockCount);
-                  });
+                    chrome.storage.sync.set({'blockCount': result.blockCount + 1});
+                    console.log(result.blockCount + 1);
+                });
             }
         },
         error: function(e) {

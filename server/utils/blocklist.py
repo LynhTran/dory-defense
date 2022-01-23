@@ -13,8 +13,8 @@ class Blocklist:
 
     def refresh_blocklists_thread(self):
         while True:
-            self.refresh_blocklists()
             time.sleep(43200)
+            self.refresh_blocklists()
 
     def refresh_blocklists(self):
         print('Refreshing blocklists...')
