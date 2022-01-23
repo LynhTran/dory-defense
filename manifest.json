@@ -26,6 +26,6 @@
         "default_title": "Dory"
     }, 
     "icons": {
-        "128": "resizedicon128.png"
+        "128": "icon.png"
     }
 }
