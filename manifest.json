@@ -6,12 +6,14 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"], 
-            "js": ["thirdparty/jquery.min.js", "email.js"], 
+            "css": ["thirdparty/css/iziToast.min.css"], 
+            "js": ["thirdparty/js/jquery.min.js", "thirdparty/js/iziToast.min.js", "email.js"], 
             "run_at": "document_start"
         }, 
         {
             "matches": ["<all_urls>"], 
-            "js": ["thirdparty/md5.min.js", "thirdparty/jquery.min.js", "content.js"], 
+            "css": ["thirdparty/css/iziToast.min.css"], 
+            "js": ["thirdparty/js/md5.min.js", "thirdparty/js/jquery.min.js", "thirdparty/js/iziToast.min.js", "content.js"], 
             "run_at": "document_start"
         }
     ], 
