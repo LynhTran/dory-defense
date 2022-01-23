@@ -1,1 +1,0 @@
-console.log('Are you sure you want to go there? This website may be malicious.')
