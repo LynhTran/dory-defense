@@ -3,7 +3,14 @@
     "description": "Build an Extension!",
     "version": "1.0",
     "manifest_version": 3,
-    "background": {
-      "service_worker": "background.js"
+    "email": {
+      "service_worker": "email.js"
+    }, 
+    "malicious": {
+      "service_worker": "malicious.js"
+    }, 
+    "permissions": ["storage"],
+    "action": {
+      "default_popup": "popup.html"
     }
 }
