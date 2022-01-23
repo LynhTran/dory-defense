@@ -35,6 +35,7 @@ class Blocklist:
         for domain in domains_in_blocklist:
             domain_hash = hashlib.md5(domain.encode('utf-8') + 'minnehack2022').hexdigest() #Salted with 'minnehack2022'
             if domain_hash not in self.blocklist_hashed:
+                print('Adding domain to blocklist: ' + domain)
                 self.blocklist_hashed.append(domain_hash)
                 add_blocklist_domain_hash(domain, domain_hash)
         

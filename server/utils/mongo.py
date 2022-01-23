@@ -12,7 +12,7 @@ def get_blocklist_domain_hashes():
     return blocklist_hashed
 
 def add_blocklist_domain_hash(domain, domain_hash):
-    if not db.forts.find_one({'_id': domain_hash}):
+    if not db.blocklist.find_one({'_id': domain_hash}):
         data = {
             '_id': domain_hash,
             'domain': domain
