@@ -4,14 +4,16 @@
     "version": "1.0",
     "manifest_version": 3,
     "content_scripts": [
-     {
-      "matches": ["<all_urls>"],
-      "js": ["email.js"],
-      "run_at": "document_start"}, 
-     {
-       "matches": ["<all_urls>"],
-       "js": ["md5.js", "jquery.min.js","content.js"]
-     }],
+        {
+            "matches": ["<all_urls>"],
+            "js": ["email.js"],
+            "run_at": "document_start"
+        },
+        {
+            "matches": ["<all_urls>"],
+            "js": ["md5.min.js", "jquery.min.js","content.js"]
+        }
+    ],
     "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html"
