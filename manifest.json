@@ -23,6 +23,6 @@
       "default_title": "Dory"
     },  
     "icons": { 
-     "128": "icon128.png" 
+     "128": "resizedicon128.png" 
     }
 }
