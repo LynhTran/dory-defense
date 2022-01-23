@@ -3,7 +3,7 @@
 // if (matches)
 
 // Remove this in production
-chrome.storage.sync.clear();
+// chrome.storage.sync.clear();
 
 console.log('content.js loaded');
 
@@ -60,6 +60,10 @@ function sendPostDomain(hash) {
                     console.log(e);
                     alert('This site may be unsafe, exercise caution when interacting with it');
                 }
+                chrome.storage.sync.get(['blockCount'], function(result) {
+                    blockCount = result.blockCount + 1;
+                    console.log(blockCount);
+                  });
             }
         },
         error: function(e) {

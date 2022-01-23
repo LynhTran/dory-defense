@@ -1,3 +1,4 @@
+//Set initial checked state for both sliders
 chrome.storage.sync.get(['emailOn'], function(result) {
     phishingToggler.checked = result.emailOn;
   });
@@ -6,13 +7,10 @@ chrome.storage.sync.get(['blockerOn'], function(result) {
   });
 
 
-
 phishingToggler.addEventListener("change", function ()  {
     chrome.storage.sync.set({emailOn : this.checked});
     chrome.storage.sync.get(['emailOn'], function() {
-    })});
-    
-
+    })});  
 blockerToggler.addEventListener("change", function ()  {
     chrome.storage.sync.set({blockerOn : this.checked});
     chrome.storage.sync.get(['blockerOn'], function() {
