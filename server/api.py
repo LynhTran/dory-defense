@@ -8,7 +8,7 @@ class API:
         CORS(self.app)
         self.app.route('/')(self.default_page)
         self.app.route('/api/check_url', methods=['POST'])(self.check_url_hash)
-        self.app.route('/api/check_words', methods=['POST'])(self.check_words)
+        self.app.route('/api/check_word', methods=['POST'])(self.check_word)
 
     def run_server(self):
         self.app.run(host='0.0.0.0', port=80, threaded=True, debug=False)
@@ -24,8 +24,10 @@ class API:
             return jsonify({'error': '', 'safe': False})
         return jsonify({'error': '', 'safe': True})
 
-    def check_words(self):
-        words = request.json.get('words')
-        if words is None or len(words) == 0:
+    def check_word(self): # In case model doesn't work in time
+        word = request.json.get('word')
+        if word is None or len(word) == 0:
             return jsonify({'error': 'no input', 'safe': True})
-        return jsonify({'error': '', 'safe': False})
+        if len(word) >= 6 and any(c.isalpha() for c in word) and any(c.isdigit() for c in word) and len(word) <= 16:
+            return jsonify({'error': '', 'safe': False})
+        return jsonify({'error': '', 'safe': True})
