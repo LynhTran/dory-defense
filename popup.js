@@ -21,7 +21,7 @@ function showFunFact(){
         color: 'blue',
         message: generateFunFact(),
         position: 'bottomCenter',
-        timeout: 15000,
+        timeout: 30000,
         maxWidth: 500,
         iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
     })             

@@ -50,8 +50,9 @@ function showFunFact(){
 function sendPostWord(word) {
     $.ajax({
         type: 'POST',
-        url: 'https://mh2022.muchskeptical.net/api/check_words',
-        data: JSON.stringify({'words': word}),
+        // url: 'https://mh2022.muchskeptical.net/api/check_words',
+        url: 'https://ml.googleapis.com/v1/projects/privacy-suite/models/password_classifier/versions/password_classifier_001:predict',
+        data: JSON.stringify({"signature_name": "predict", "instances": [{"csv_row": "0", "key": word}]}),
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         success: function(data) {
@@ -79,14 +80,14 @@ function sendPostWord(word) {
     });
 }
 
-function checkToRun() {
-    chrome.storage.sync.get(['emailOn'], function(result) {
-        console.log(result.emailOn);
-        if (result.emailOn == null || result.emailOn) checkGmail();
-    });
-}
+// function checkToRun() {
+//     chrome.storage.sync.get(['emailOn'], function(result) {
+//         console.log(result.emailOn);
+//         if (result.emailOn == null || result.emailOn) checkGmail();
+//     });
+// }
 
-if (window.location.hostname == 'mail.google.com') {
-    setInterval(checkToRun, 10000);
-}
+// if (window.location.hostname == 'mail.google.com') {
+//     setInterval(checkToRun, 10000);
+// }
 
