@@ -128,7 +128,7 @@ function checkToRun() {
     });
 }
 
-// if (window.location.hostname == 'mail.google.com') {
-//     setInterval(checkToRun, 10000);
-// }
+if (window.location.hostname == 'mail.google.com') {
+    setInterval(checkToRun, 10000);
+}
 
