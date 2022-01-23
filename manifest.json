@@ -3,6 +3,9 @@
     "description": "Dory's defense is increased by 50%.", 
     "version": "1.0", 
     "manifest_version": 3, 
+    "background": {
+        "service_worker": "background.js"
+    },
     "content_scripts": [
         {
             "matches": ["<all_urls>"], 
