@@ -39,6 +39,7 @@ function authorize(){
 		}
 	);
 }
+
 function getDrafts(userId){
         return gapi.client.gmail.users.threads.list({
               userId: 'me',
