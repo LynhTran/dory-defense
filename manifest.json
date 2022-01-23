@@ -6,9 +6,11 @@
     "email": {
       "service_worker": "email.js"
     }, 
-    "malicious": {
-      "service_worker": "malicious.js"
-    }, 
+    "malicious": [{
+      "service_worker": "malicious.js",
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+     }],
     "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html"
