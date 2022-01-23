@@ -1,5 +1,4 @@
 console.log('Hi! You are in email.js');
-
 var checkedWords = [];
 
 function checkGmail() {
@@ -33,6 +32,21 @@ var funFacts = ['Compromised passwords are responsible for 81 percent of hacking
                 'Approximately 15 billion spam emails are sent daily; 45% of all email is spam (and some researchers believe that number to be closer to 75%.', 
                 'An analysis of more than 55 million emails reveals that one in every 99 emails is a phishing attack.', ];
 
+function generateFunFact(){
+    return funFacts[getRandomInt(funFacts.length)];
+}
+
+function showFunFact(){
+    return iziToast.info({
+        title: 'Did you know...',
+        color: 'blue',
+        message: generateFunFact(),
+        position: 'topRight',
+        timeout: 10000,
+        maxWidth: 500,
+        iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
+    })             
+}
 function sendPostWord(word) {
     $.ajax({
         type: 'POST',
@@ -52,15 +66,7 @@ function sendPostWord(word) {
                     timeout: 10000,
                     buttons: [
                         ['<button class = "button-learn">Fun Fact</button>', function (instance, toast) {
-                             iziToast.info({
-                                 title: 'Did you know...',
-                                 color: 'blue',
-                                 message: funFacts[getRandomInt(funFacts.length)],
-                                 position: 'topRight',
-                                 timeout: 10000,
-                                 maxWidth: 500,
-                                 iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
-                             })             
+                             showFunFact();
                         }],
                     ]
                 });
@@ -81,3 +87,4 @@ function checkToRun() {
 if (window.location.hostname == 'mail.google.com') {
     setInterval(checkToRun, 10000);
 }
+

@@ -8,20 +8,25 @@ a   {
 a:hover {
     text-decoration: underline;
   }
+body{
+  height: 500px;
+  width: 300px;
+  text-align: center;
+}
 h1 {
     font-family: "Luckiest Guy";
-    font-size: 80px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: 300;
     margin: 20px;
-    color: #2e77aa;
+    color: #03BBFF;
     padding-bottom: 40px;
 }
 h2 {
     font-family: "Luckiest Guy";
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
     margin: 0;
-    color: #2e77aa;
+    color: #03BBFF;
     text-align: center;
 }
 h5 {
@@ -29,7 +34,7 @@ h5 {
     font-size: 30px;
     font-weight: 400;
     margin: 0;
-    color: #2e77aa;
+    color: #03BBFF;
     display:inline-block;
     margin-right:60px;
     width:200px;
@@ -125,3 +130,44 @@ h6 {
     border-radius: 50%;
   }
   
+
+  .counter{
+    color: #F14997;
+    background: linear-gradient(to right bottom,#fff 50%, #f9f9f9 51%);
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    width: 200px;
+    padding: 10px 0 0;
+    margin: 0 auto;
+    border-radius: 50px 0;
+    box-shadow: 0 0 15px -5px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+.counter .counter-icon{
+    font-size: 15px;
+    margin: 0 0 10px;
+}
+.counter h3{
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin: 0 0 20px;
+}
+.counter .counter-value{
+    color: #fff;
+    background: linear-gradient(to right bottom, #FD8ED2, #F14997);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 40px;
+    padding: 7px 0 3px;
+    display: block;
+}
+.counter.blue{ color: #0092CD; }
+.counter.blue .counter-value{ background: linear-gradient(to right bottom, #06BBF4, #0092CD); }
+.counter.orange{ color: #FB9A00; }
+.counter.orange .counter-value{ background: linear-gradient(to right bottom, #FCCA09, #FB9A00); }
+.counter.green{ color: #03BFB0; }
+.counter.green .counter-value{ background: linear-gradient(to right bottom, #00E2CD, #03BFB0); }
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}
