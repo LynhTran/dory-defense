@@ -38,6 +38,7 @@ function sendPostDomain(hash) {
                     titleSize: 40,
                     message: 'This site may be unsafe, exercise caution when interacting with it',
                     messageSize: 20,
+                    iconUrl: 'https://cdn.muchskeptical.net/mh2022/icon.png',
                     timeout: 10000,
                     position: 'topLeft',
                     close: false,
