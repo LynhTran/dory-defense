@@ -1,5 +1,5 @@
 # Dory Defense
-A Chrome extension that scans Gmail drafts for potentially sensitive information and checks visited domains against a blacklist of sites known for unwanted activities (scams, phishing, etc).
+A Chrome extension that scans Gmail drafts for potentially sensitive information and checks visited domains against a blacklist of sites known for unwanted activities (scams, phishing, etc). The extension also detects if the user goes to any potentially malicious websites, and warns them against doing so.
 
 ## Installation (Extension)
 Clone the project and load the folder as an [unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) extension.
