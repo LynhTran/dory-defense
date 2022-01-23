@@ -23,6 +23,11 @@ function checkGmail() {
     }
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+var funFacts = ['Compromised passwords are responsible for 81 percent of hacking-related breaches.', '27% of Americans have tried to guess someone else’s password, and 17% of them were able to guess correctly.', '4 out of 10 Americans have had their personal data compromised online. Of those, 47% have lost money as a result.', 'Brute-force hacking tools are sold on criminal marketplaces for just $4 on average.'];
+
 function sendPostWord(word) {
     $.ajax({
         type: 'POST',
@@ -43,9 +48,9 @@ function sendPostWord(word) {
                     buttons: [
                         ['<button class = "button-learn">Learn More</button>', function (instance, toast) {
                              iziToast.info({
-                                 title: 'Stuff about digital security and why they should care',
+                                 title: 'Did you know...',
                                  color: 'blue',
-                                 message: 'internet = bad',
+                                 message: funFacts[getRandomInt(funFacts.length)],
                                  position: 'topRight',
                                  timeout: 10000,
                                  maxWidth: 500,
