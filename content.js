@@ -64,8 +64,8 @@ function sendPostDomain(hash) {
                 }
                 chrome.storage.sync.get(['blockCount'], function(result) {
                     chrome.storage.sync.set({'blockCount': result.blockCount + 1});
-                    console.log(blockCount);
-                  });
+                    console.log(result.blockCount + 1);
+                });
             }
         },
         error: function(e) {
