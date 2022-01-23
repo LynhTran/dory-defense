@@ -1,14 +1,17 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
+    "name": "Dory Defense",
+    "description": " ",
     "version": "1.0",
     "manifest_version": 3,
-    "email": {
-      "service_worker": "email.js"
-    }, 
-    "malicious": {
-      "service_worker": "malicious.js"
-    }, 
+    "content_scripts": [
+     {
+      "matches": ["<all_urls>"],
+      "js": ["email.js"],
+      "run_at": "document_start"}, 
+     {
+       "matches": ["<all_urls>"],
+       "js": ["md5.js", "jquery.min.js","content.js"]
+     }],
     "permissions": ["storage"],
     "action": {
       "default_popup": "popup.html"
@@ -17,4 +20,7 @@
       "default_popup": "popup.html",
       "default_title": "Dory"
     }    
+      "warning_popup": "warning.html"
+    },
+    
 }
