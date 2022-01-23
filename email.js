@@ -39,7 +39,29 @@ function authorize(){
 		}
 	);
 }
-
-
-	request.execute();
+function getDrafts(userId){
+        return gapi.client.gmail.users.threads.list({
+              userId: 'me',
+              q: query, //optional query
+              labelIds: DRAFT //optional labels
+          }); //returns a promise   
 }
+//GET https://gmail.googleapis.com/gmail/v1/users/{userId}/drafts/{id}
+function getMostRecentDraft(userId){
+    var url = ' https://gmail.googleapis.com/gmail/v1/users/' + userId + '/drafts/' + getDrafts().length;
+    fetch(url)
+        .then((response) => {
+            return response.json();
+        })
+        .then((myJson) => {
+            console.log(myJson);
+        });
+}
+
+function checkDraft(obj){
+    // look at each word
+    // send to back end check if it's a password or not
+    // if it is, render pop up
+    // else continue checking until end is reached
+}
+//	request.execute();
