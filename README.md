@@ -11,3 +11,15 @@ This server was tested with Python 2.7. To install dependencies, run `python -m 
 - [iziToast](https://izitoast.marcelodolza.com/)
 - [jQuery](https://jquery.com/)
 - [JavaScript MD5](https://github.com/blueimp/JavaScript-MD5)
+
+## Screenshots
+![Counter](/images/counter.jpg)  
+Our extension keeps a count of how many malicious websites and sensitive pieces of information we catch.  
+![Website](/images/website.jpg)  
+![Password](/images/password.jpg)  
+![Query](/images/query.png)  
+Queries to the ML model can be submitted via REST API.  
+![Predict](/images/predict.png)  
+Queries are classified as "password" or "not password" in the prediction.  
+![Data](/images/data.png)  
+Over 43,000 instances of passwords were labelled for the machine learning model and 10,000 instances were labelled as not passwords. 
