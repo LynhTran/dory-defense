@@ -1,5 +1,6 @@
+![Dory](icon.png)
 # Dory Defense
-Welcome to Dory Defender - a Chrome extension that helps protect your digital privacy!
+Welcome to Dory Defense - a Chrome extension that helps protect your digital privacy!
 
 Dory Defense has two major capabilities:
 1. The software can detect when the user tries to access a known **malicious website**, warns them of the danger, and gives them the option to go back.
@@ -7,7 +8,7 @@ Dory Defense has two major capabilities:
 
 There are also pop ups to **educate** users on digital privacy in the hopes that the information will influence them to act safer online.
 
-(this was created for Minnehack 2022 - a 24 hour hackathon, [Devpost Project](https://devpost.com/software/update-later)]
+(this was created in 24 hours for Minnehack 2022 and placed 1st overall [Devpost Page](https://devpost.com/software/update-later) | [Demo Video](https://youtu.be/fSmBA6t5TO8))
 ## Installation (Extension)
 Clone the project and load the folder as an [unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) extension.
 
