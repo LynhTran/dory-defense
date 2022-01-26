@@ -1,5 +1,4 @@
 ![Dory](icon.png)
-![EmailPreview](/images/emailPreview.png)
 # Dory Defense
 Welcome to Dory Defense - a Chrome extension that helps protect your digital privacy!
 
@@ -22,6 +21,7 @@ This server was tested with Python 2.7. To install dependencies, run `python -m 
 - [JavaScript MD5](https://github.com/blueimp/JavaScript-MD5)
 
 ## Screenshots
+![EmailPreview](/images/emailPreview.png)
 ![Counter](/images/counter.jpg)  
 Our extension keeps a count of how many malicious websites and sensitive pieces of information we catch.  
 ![Website](/images/website.jpg)  
