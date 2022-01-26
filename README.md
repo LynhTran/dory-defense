@@ -1,4 +1,5 @@
 ![Dory](icon.png)
+![EmailPreview](/images/emailPreview.png)
 # Dory Defense
 Welcome to Dory Defense - a Chrome extension that helps protect your digital privacy!
 
