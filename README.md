@@ -44,6 +44,7 @@ Over 43,000 instances of passwords were labelled for the machine learning model 
 
 ## Installation (Extension)
 Clone the project and load the folder as an [unpacked](https://developer.chrome.com/docs/extensions/mv3/getstarted/#unpacked) extension.
+![installationInstructions](/images/installation.png)
 
 ## Installation (Server)
 This server was tested with Python 2.7. To install dependencies, run `python -m pip install -r requirements.txt`. To start the webserver, run `python app.py`. The default host is 0.0.0.0 (all IPs bound) and the default port is 80.
